@@ -1,13 +1,13 @@
 SDCC=sdcc
 SDLD=sdld
-OBJECTS=blinky.ihx uart.ihx sp_test.ihx
+OBJECTS=blinky.ihx uart.ihx
 
 .PHONY: all clean flash
 
 all: $(OBJECTS)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) *.asm *.lst *.rel *.lk *.rst *.sym  *.map *.cdb
 
 flash: $(OBJECT).ihx
 	stm8flash -cstlink -pstm8l150 -w $(OBJECT).ihx
